@@ -196,19 +196,9 @@ elif page == "Final Decision":
             if col not in input_df.columns:
                 input_df[col] = 0
 
-       input_df = input_df[model.feature_names_in_]
-
-    # Log column order and types
-    st.write("🧾 Columns aligned to model expectations:")
-    st.json({col: str(input_df[col].dtype) for col in input_df.columns})
-
-    # Make prediction
-    pred = model.predict(input_df)[0]
-    label = "Loan Approved ✅" if pred == 1 else "Loan Rejected ❌"
-except Exception as e:
-    st.error(f"💥 Prediction failed: {e}")
-    st.stop()  # Prevent Streamlit from continuing if there's a fatal issue
-
+        input_df = input_df[model.feature_names_in_]
+        pred = model.predict(input_df)[0]
+        label = "Loan Approved ✅" if pred == 1 else "Loan Rejected ❌"
 
         if st.button("Submit Application"):
             if pred == 1:
