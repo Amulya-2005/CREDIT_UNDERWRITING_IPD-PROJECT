@@ -1,0 +1,13 @@
+pandas
+scikit-learn
+streamlit
+matplotlib
+transformers==4.38.1
+langdetect
+torch
+numpy
+seaborn
+joblib
+fpdf2
+pillow
+pytesseract
